@@ -5,10 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Raleway:200i,300,300i,400,400i,500,500i,600');
+    body{
+      font-family: 'Raleway', sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    .header{
+      background-color: #000000;
+      margin: auto;
+      width: 100%;
+      position: fixed;
+      color: #FFF;
+    }
+    h1{display: inline-block;}
+    .labels{
+      padding-top: 500;
+    }
+    .profile{
+
+    }
+    .btnTest{
+       background:url('images/icon.png') no-repeat left center;
+       padding-left:20px;
+    }
+    .footer{
+      position: fixed;
+      height: 80px;
+      background-color: #CCE5FF;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
-    <button type="button" name="back">Regresar</button>
+    <a href="#" class="btnTest"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Regresar</a>
     <h1>Fase 2</h1>
   </header>
   <content class="labels">
@@ -36,7 +69,7 @@
   <footer>
     <button type="button" name="back">Cerrar</button>
     <h1>Agregar otro contacto</h1>
-    <button type="button" name="back">Saltar</button>
+    <a href="#">Saltar</a>
   </footer>
 
 </body>
