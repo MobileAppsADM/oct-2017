@@ -1,0 +1,56 @@
+body {
+  background-color: #B7C9E2;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  background-color: #193473;
+  color: #D8BEAC;
+  display: flex;
+  height: 40px;
+  margin: auto;
+  position: fixed;
+  width: 100%;
+}
+.back {
+  /*color: #D8BEAC;*/
+  height: 80%;
+  margin-left: 1px;
+  margin-top: 5px;
+  /*position: absolute;*/
+/*top: 35px*/
+}
+
+h1 {
+  display: inline-block;
+  margin-top: 0;
+  padding-top: 0;
+
+}
+.component-label{
+  border-radius: .5;
+  padding-top: 15vh;
+}
+.profile{
+  background-color: #709EDC;
+  padding: 5%;
+}
+.profile > img {
+  margin: auto;
+  width: 50vw;
+}
+.add-contacto {
+  display: inline-block;
+  width: 100vw;
+}
+.btnTest{
+   background:url('images/icon.png') no-repeat left center;
+   padding-left:20px;
+}
+.footer{
+  background-color: #CCE5FF;
+  height: 80px;
+  position: fixed;
+}

@@ -1,76 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <style media="screen">
-    @import url('https://fonts.googleapis.com/css?family=Raleway:200i,300,300i,400,400i,500,500i,600');
-    body{
-      font-family: 'Raleway', sans-serif;
-      padding: 0;
-      margin: 0;
-    }
-
-    .header{
-      background-color: #000000;
-      margin: auto;
-      width: 100%;
-      position: fixed;
-      color: #FFF;
-    }
-    h1{display: inline-block;}
-    .labels{
-      padding-top: 500;
-    }
-    .profile{
-
-    }
-    .btnTest{
-       background:url('images/icon.png') no-repeat left center;
-       padding-left:20px;
-    }
-    .footer{
-      position: fixed;
-      height: 80px;
-      background-color: #CCE5FF;
-    }
-  </style>
+  <title>Fase 2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200i,300,300i,400,400i,500,500i,600">
+  <link rel="stylesheet" href="./fase2.css">
 </head>
 <body>
   <header class="header">
-    <a href="#" class="btnTest"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Regresar</a>
+    <a href="./fase1.html"><img class="back" src="back.svg" width="70px" alt=""></a>
     <h1>Fase 2</h1>
   </header>
-  <content class="labels">
-    <div class="profile1">
+  <div class="component-label">
+    <div class="profile">
       <img src="http://lorempixel.com/180/250/people" alt="foto de perfil">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem.</p>
-      <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-      <p>Lorem ipsum.</p>
-      <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-      <p>Lorem ipsum.</p>
-      <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-      <p>Lorem ipsum dolor.</p>
+      <div class="contacto">
+          <form class="add-contact" action="Formulario" method="post">
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" class="nombre" />
+            </div>
+            <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" class="mail" />
+            </div>
+            <div>
+                <label for="msg">Dirección:</label>
+                <textarea class="msg"></textarea>
+            </div>
+        </form>
     </div>
-    <div class="profile2">
+  </div>
+  <div class="component-label">
+    <div class="profile">
       <img src="http://lorempixel.com/180/250/people" alt="foto de perfil">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem.</p>
-      <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-      <p>Lorem ipsum.</p>
-      <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-      <p>Lorem ipsum.</p>
-      <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-      <p>Lorem ipsum dolor.</p>
+      <div class="contacto">
+          <form class="add-contact" action="Formulario" method="post">
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" class="nombre" />
+            </div>
+            <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" class="mail" />
+            </div>
+            <div>
+                <label for="msg">Dirección:</label>
+                <textarea class="msg"></textarea>
+            </div>
+        </form>
+        </div>
+      </div>
     </div>
-  </content>
+  </div>
   <footer>
     <button type="button" name="back">Cerrar</button>
-    <h1>Agregar otro contacto</h1>
+    <button type="button" name="add">Agregar otro contacto</button>
     <a href="#">Saltar</a>
   </footer>
-
 </body>
 </html>
