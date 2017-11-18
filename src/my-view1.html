@@ -9,6 +9,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-view1">
@@ -23,15 +26,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="card">
       <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <h1>{{title}}</h1>
+      <paper-input label="Nombre" value="{{nombre}}"></paper-input>
+      <paper-input label="Email" value="{{email}}"></paper-input>
+      <paper-textarea label="Descripción" value="{{descripcion}}" rows="3"></paper-textarea>
+      <paper-button on-tap="_registraUsuario" raised>Registrar</paper-button>
     </div>
+
   </template>
 
   <script>
     class MyView1 extends Polymer.Element {
       static get is() { return 'my-view1'; }
+
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'Hola'
+          },
+          nombre: {
+            type: String,
+            value: ''
+          },
+          email: {
+            type: String,
+            value: ''
+          },
+          descripcion: {
+            type: String,
+            value: ''
+          }
+        }
+      }
+
+      _registraUsuario () {
+        console.log('registrando usuario')
+        console.log(this.title)
+        console.log(this.nombre)
+        console.log(this.email)
+        console.log(this.descripcion)
+
+      }
+
     }
 
     window.customElements.define(MyView1.is, MyView1);
