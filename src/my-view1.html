@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return {
           title: {
             type: String,
-            value: 'Hola'
+            value: 'Registra un nuevo usuario'
           },
           nombre: {
             type: String,
@@ -56,17 +56,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           descripcion: {
             type: String,
             value: ''
+          },
+          // viene de referencia de Firebase-query
+          ref: {
+            type: Object
           }
         }
       }
 
       _registraUsuario () {
-        console.log('registrando usuario')
-        console.log(this.title)
-        console.log(this.nombre)
-        console.log(this.email)
-        console.log(this.descripcion)
-
+        console.log('view1-registrando')
+        this.dispatchEvent(new CustomEvent('register',
+        {
+          detail: {
+            name: this.nombre,
+            email: this.email,
+            description: this.descripcion
+          }
+        }))
       }
 
     }

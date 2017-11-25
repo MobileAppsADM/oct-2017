@@ -1,13 +1,3 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
@@ -20,6 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="my-icons.html">
 
 <link rel="lazy-import" href="my-view1.html">
@@ -68,6 +61,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
+    <firebase-app
+      name="disenoapps"
+      api-key="AIzaSyC615i4pWisFJMJw4GNY5KZljDO-ThdDko"
+      auth-domain="diseno-apps-adm.firebaseapp.com"
+      database-url="https://diseno-apps-adm.firebaseio.com">
+    </firebase-app>
+    <firebase-auth
+      app-name="disenoapps"
+      id="auth"
+      user="{{user}}"
+      provider="google"
+      on-error="handleError">
+    </firebase-auth>
+    <firebase-query
+      id="query"
+      app-name="disenoapps"
+      ref="{{ref}}"
+      path="users"
+      data="{{users}}">
+    </firebase-query>
+
     <app-location
         route="{{route}}"
         url-space-regex="^[[rootPath]]">
@@ -106,8 +120,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
+          <my-view1 name="view1" on-register="_registraUsuario"></my-view1>
+          <my-view2 name="view2" users="[[users]]"></my-view2>
           <my-view3 name="view3"></my-view3>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
@@ -131,6 +145,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // This shouldn't be neccessary, but the Analyzer isn't picking up
           // Polymer.Element#rootPath
           rootPath: String,
+          users: Object,
+          ref: Object
         };
       }
 
@@ -163,6 +179,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _showPage404() {
         this.page = 'view404';
+      }
+
+      _registraUsuario (e) {
+        this.$.query.ref.push(e.detail)
+      }
+
+      ready () {
+        super.ready()
+        let auth = this.$.auth
+        console.log(auth.signInWithPopup)
+        auth.signInAnonymously()
+          .then(function(response) {
+            console.log('success')
+          })
+          .catch(function(error) {
+            console.log('error', error)
+          })
       }
     }
 
